@@ -1,5 +1,5 @@
 """
-URL configuration for company project.
+URL configuration for supermercado project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -17,8 +17,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path,include
-
+from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("customers/", include('customers.urls')),
+    path("create_customer/",views.createCustomer,name="create_customer" ),
+     
 ]

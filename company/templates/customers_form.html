@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Registro de Clientes </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form method="POST">
+            {% csrf_token %} 
+            {{form.as_p}}
+            <button type="submit">Save Customer</button>
+        </form>
+    </body>         
+</html>
