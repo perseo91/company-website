@@ -21,5 +21,7 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("create_customer/",views.createCustomer,name="create_customer" ),
+    path("create_country/",views.createCountry,name="create_country" ),
+     
      
 ]
