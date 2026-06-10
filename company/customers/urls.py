@@ -22,6 +22,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("create_customer/",views.createCustomer,name="create_customer" ),
     path("create_country/",views.createCountry,name="create_country" ),
+    path("create_region/",views.createRegion,name="create_region" ),
+    path("create_city/",views.createCity,name="create_city" ),
      
      
 ]

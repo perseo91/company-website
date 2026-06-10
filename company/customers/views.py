@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponse
 from .models import Customers,Country
-from .forms import CustomerForm,CountryForm
+from .forms import CustomerForm,CountryForm,RegionForm,CityForm
 def createCustomer(request):
     if request.method=="POST":
         form=CustomerForm(request.POST)
@@ -24,5 +24,29 @@ def createCountry(request):
     else:    
         countryform=CountryForm()
     return render(request,'countries_form.html',{'countryform':countryform  })
+def createRegion(request):
+    if request.method=="POST":
+        regionform=RegionForm(request.POST)
+        if regionform.is_valid():
+            region=regionform.save()
+            
+            messages.success(request,f"La region '{region.name}' fue registrada con exito")
+            
+            return render(request,'regions_form.html',{'regionform':regionform})
+    else:    
+        regionform=RegionForm()
+    return render(request,'regions_form.html',{'regionform':regionform  })
 
+def createCity(request):
+    if request.method=="POST":
+        cityform=CityForm(request.POST)
+        if cityform.is_valid():
+            city=cityform.save()
+            
+            messages.success(request,f"La ciudad '{city.name}' fue registrada con exito")
+            
+            return render(request,'cities_form.html',{'cityform':cityform})
+    else:    
+        cityform=CityForm()
+    return render(request,'cities_form.html',{'cityform':cityform  })
 
